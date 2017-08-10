@@ -6,7 +6,7 @@ FROM python:3.6.2-jessie
 ADD . /app
 WORKDIR /app
 
-RUN pip install discord==0.16.8
+RUN pip install discord.py==0.16.8
 RUN pip install requests==2.18.3
 
 RUN apt-get update \
