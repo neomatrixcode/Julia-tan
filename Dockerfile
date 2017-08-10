@@ -8,7 +8,6 @@ WORKDIR /app
 
 RUN pip install discord==0.16.8
 RUN pip install requests==2.18.3
-CMD python app.py
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends ca-certificates \
@@ -35,4 +34,4 @@ RUN mkdir $JULIA_PATH \
 
 ENV PATH $JULIA_PATH/bin:$PATH
 
-CMD ["julia"]
+CMD python app.py
