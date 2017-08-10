@@ -1,42 +1,47 @@
-import discord
-from discord.ext import commands
-import random
+from os import getenv
+from subprocess import getoutput
 
-description = '''soy julia-tang, un bot de ayuda!'''
-bot = commands.Bot(command_prefix='>', description=description)
+from discord.ext.commands import Bot
+
+commands.Bot()
+
+separator = '#' * 40
+description = '''Soy Julia-tan, el bot de Discord del servidor de JuliaLangEs!'''
+bot = Bot(command_prefix='jl>', description=description)
+
 
 @bot.event
 async def on_ready():
-    print('Yo soy')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
+    print(
+        f"""
+        {separator}
+        
+        Julia-tan JuliaLangEs Discord bot.
+        
+        BOT NAME: {bot.user.name}
+        BOT ID  : {bot.user.id}
+        
+        {separator}
+        """
+    )
 
 
 @bot.command()
-async def hola():
-    """Suma dos numeros."""
-    await bot.say("Hola!!!")
-
-@bot.command()
-async def suma(left : int, right : int):
-    """Suma dos numeros."""
-    await bot.say(left + right)
-
-@bot.command()
-async def unido(member : discord.Member):
-    """Dice cuando se unio un miembro."""
-    await bot.say('{0.name} se unio el {0.joined_at}'.format(member))
-
-@bot.command()
-async def ejecuta(comando:str):
-    await bot.say('ejecutando {}'.format(comando))
+async def julia(command: str):
+    try:
+        result = getoutput(f"julia -e {command}")
+        await bot.say(
+            f"""
+            ```julia
+            julia> {command}
+            {result}
+            
+            ```
+            """
+        )
+    except error:
+        await bot.say(f"JULIA_TAN_ERROR: {error}")
 
 
-    # elif message.content.startswith('!acevedo'):
-    #     import requests
-    #     r = requests.post("https://neomatrix.herokuapp.com/graphql", data={'query': '{ neomatrix{ nombre email } }'})
-    #     await client.send_message(message.channel, 'los datos son {} '.format(r.text))
-
-
-bot.run("MzQ0OTIzODQzNjE1MzkxNzQ1.DG0PBQ.F5JANrRjCIvpenMfzmLBisYxaXo")
+if __name__ == '__main__':
+    bot.run(getenv("DISCORD_BOT_TOKEN"))
