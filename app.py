@@ -1,9 +1,9 @@
+#!/usr/bin/env python3.6
+
 from os import getenv
 from subprocess import getoutput
 
 from discord.ext.commands import Bot
-
-commands.Bot()
 
 separator = '#' * 40
 description = '''Soy Julia-tan, el bot de Discord del servidor de JuliaLangEs!'''
@@ -27,8 +27,15 @@ async def on_ready():
 
 
 @bot.command()
-async def julia(command: str):
+async def julia(*, command: str):
     try:
+        if command.startswith("```julia\n"):
+            command = command[9:-3]
+        elif command.startswith("```\n"):
+            command = command[4:-3]
+        elif command.startswith("`"):
+            command = command[1:-1]
+
         result = getoutput(f"julia -e {command}")
         await bot.say(
             f"""
@@ -40,7 +47,24 @@ async def julia(command: str):
             """
         )
     except error:
-        await bot.say(f"JULIA_TAN_ERROR: {error}")
+        await bot.say(
+            f"""
+            Ooopss...
+            
+            Comando: 
+            
+            ```julia
+            {command}
+            ```
+            
+            Error:
+            
+            ```python
+            {error}
+            ```
+            
+            """
+        )
 
 
 if __name__ == '__main__':
