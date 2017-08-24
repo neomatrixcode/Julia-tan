@@ -1,0 +1,27 @@
+{
+  "name": "Julia-tan",
+  "description": "",
+  "keywords": [],
+  "website": "https://github.com/codeneomatrix/Julia-tan",
+  "repository": "https://github.com/codeneomatrix/Julia-tan",
+  "success_url": "/",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "Free"
+    }
+  },
+  "image": "",
+  "buildpacks": [
+    {
+      "url": "https://github.com/codeneomatrix/docker-compose-buildpack"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": ""
+      }
+    }
+  }
+}
