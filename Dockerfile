@@ -1,8 +1,6 @@
 FROM python:3.6.2-jessie
 
 # Discord
-ADD . /app
-WORKDIR /app
 RUN pip install discord.py==0.16.8
 
 # Julia
@@ -15,5 +13,7 @@ RUN mkdir $JULIA_PATH \
 	&& rm julia.tar.gz*
 
 ENV PATH $JULIA_PATH/bin:$PATH
+ADD . /app
+WORKDIR /app
 
 CMD python app.py
