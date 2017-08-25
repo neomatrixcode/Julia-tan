@@ -14,7 +14,8 @@
   "image": "",
   "buildpacks": [
     {
-      "url": "https://github.com/codeneomatrix/docker-compose-buildpack"
+      "https://github.com/ddollar/heroku-buildpack-apt",
+      "https://github.com/yngndrw/docker-buildpack"
     }
   ],
   "environments": {
