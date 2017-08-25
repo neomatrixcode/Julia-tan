@@ -14,10 +14,10 @@
   "image": "",
   "buildpacks": [
     {
-      "https://github.com/ddollar/heroku-buildpack-apt"
+      "url": "https://github.com/ddollar/heroku-buildpack-apt"
     },
     {
-      "https://github.com/yngndrw/docker-buildpack"
+      "url": "https://github.com/yngndrw/docker-buildpack"
     }
   ],
   "environments": {
