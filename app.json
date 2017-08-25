@@ -14,7 +14,9 @@
   "image": "",
   "buildpacks": [
     {
-      "https://github.com/ddollar/heroku-buildpack-apt",
+      "https://github.com/ddollar/heroku-buildpack-apt"
+    },
+    {
       "https://github.com/yngndrw/docker-buildpack"
     }
   ],
