@@ -14,7 +14,7 @@
   "image": "",
   "buildpacks": [
     {
-      "url": "https://github.com/tristanoneil/docker-buildpack"
+      "url": "https://github.com/apawloski/docker-buildpack"
     }
   ],
   "environments": {
