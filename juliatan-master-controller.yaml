@@ -28,4 +28,4 @@ spec:
           valueFrom:
             secretKeyRef:
               name: discord-token
-              key: DISCORD_BOT_TOKEN            
+              key: DISCORD_BOT_TOKEN.txt            
