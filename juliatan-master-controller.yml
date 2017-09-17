@@ -23,3 +23,9 @@ spec:
           requests:
             cpu: 100m
             memory: 100Mi
+      env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: DISCORD_BOT_TOKEN
+            key: token            
