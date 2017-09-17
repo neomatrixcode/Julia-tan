@@ -15,5 +15,6 @@ RUN mkdir $JULIA_PATH \
 ENV PATH $JULIA_PATH/bin:$PATH
 ADD . /app
 WORKDIR /app
+RUN julia -e "Pkg.add(\"PyCall\")"
 
-CMD python app.py
+CMD julia julia_tan.jl
