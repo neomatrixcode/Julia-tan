@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: master
-        #image: juliatan  # or just image: juliatan
-        build: .
+        image: codeneomatrix/julia-tan  # or just image: juliatan
+        #build: .
         resources:
           requests:
             cpu: 100m
