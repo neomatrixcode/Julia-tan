@@ -24,8 +24,8 @@ spec:
             cpu: 100m
             memory: 100Mi
       env:
-      - name: SECRET_USERNAME
+      - name: DISCORD_BOT_TOKEN
         valueFrom:
           secretKeyRef:
-            name: DISCORD_BOT_TOKEN
-            key: token            
+            name: discord-token
+            key: DISCORD_BOT_TOKEN            
